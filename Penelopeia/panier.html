@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Panier</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="panier.css">
+  <!--<script src="script.js"></script>-->  
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo_titre" src="images/banniere_logo_penelopeia.png" alt="banniere_logo_penelopeia"></a>
+        <a href="index.html"><img id="logo" src="images/logo_sanstypo.png" alt="logo"></a>
+        <ul id="menu">
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="creations.html">Créations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html"><img id="basket" src="images/basket_icon.svg">
+                <div><span id="nb">0</span></div></a>
+            </li>
+        </ul>
+    </header>
+    <main> 
+        <section>
+            <h1>Récapitulatif commande</h1>
+            <article id="ajout">
+                <p id="no_product">Vous n'avez pas encore d'articles dans votre panier...</p>
+            </article>
+            <aside>
+                <p class="title">Livraison</p>
+                <p> Si vous commandez avant 14h, vous serez livré en 48h.</p>
+                <p class="title">Retours</p>
+                <p>Vous avez une semaine pour renvoyer l'article s'il ne vous convient pas. <br>
+                Les frais de retours sont à votre charge.</p>
+                <p class="title">Questions</p>
+                <p>Pour toute question, merci de vous référez au formulaire de contact.</p>
+            </aside>
+        </section>
+        <section id="boutons">
+            <div>
+                <a id="return" href="creations.html">Continuer mes achats</a>
+            </div>
+            <div>
+                <a class="button_p" href="validation_panier.html">Valider mon panier</a>
+            </div>
+        </section>
+    </main>
+    <script>
+        /* Permet de récupérer le nombre d'articles dans le panier*/
+        var articles_panier = localStorage.getItem("nb_article");
+        nb.innerHTML = articles_panier;
+
+        /* Afficher les objets dans le panier */
+        function affichage_panier(){
+            if (articles_panier > 0){
+                var i = 0;
+                var afficher = document.getElementById("ajout");
+                afficher.innerHTML = " ";
+                while (i < articles_panier ){
+                    i++;
+                    var ajout_produit = localStorage.getItem("article"+i);
+                    if (ajout_produit !== null){
+                        afficher.innerHTML += ajout_produit;
+                    }
+                }
+                var prix_final = localStorage.getItem("prix total");
+                afficher.innerHTML += "<div id='prix'> Prix total : " + prix_final + "€ <div>";   
+            };
+        };
+        affichage_panier();
+
+        for(let i = 0; i < localStorage.length; i++){
+                console.log(localStorage.key(i));
+        };
+
+        /* Permet de supprimer un article du panier */
+        function supression_panier(id){
+            /* supprimer l'affichage du produit sur la page */
+            localStorage.removeItem("article"+id);
+            var afficher = document.getElementById("ajout");
+            afficher.innerHTML = " ";
+            for(let i = 0; i < localStorage.length; i++){
+                var ajout_produit = localStorage.getItem("article"+i);
+                if (ajout_produit !== null){
+                    afficher.innerHTML += ajout_produit;
+                }
+            };
+            /* Calcul nouveau prix */
+            var req = new XMLHttpRequest();
+            req.open('GET', 'produits.json',true);
+            req.onload = function(){
+                var jsondata3 = JSON.parse(this.response);
+                var prix_produit = jsondata3[id].unit_price;
+                var ancienprix = localStorage.getItem("prix total");
+                var nouveauprix = parseInt(ancienprix) - parseInt(prix_produit);
+                localStorage.setItem("prix total",nouveauprix);
+                var prix_final = localStorage.getItem("prix total");
+                afficher.innerHTML += "<div id='prix'> Prix total : " + prix_final + "€ <div>";   
+            };
+            req.send();
+            /* Mettre l'icone panier à jour */
+            var articles_panier = localStorage.getItem("nb_article");
+            articles_panier = parseInt(articles_panier) - 1;
+            nb.innerHTML = articles_panier;
+            localStorage.setItem("nb_article",articles_panier);
+        };
+
+        /* rajoute 1 en quantité au produit */
+        function ajoutquantite(id){
+            var quantite = localStorage.getItem("quantite"+id);
+            console.log(quantite);
+            if (quantite < 10){
+                /* nouveau calcul */
+                var new_quantite = parseInt(quantite) + 1;
+                localStorage.setItem("quantite"+id, new_quantite);
+                var quantite2 = localStorage.getItem("quantite"+id);
+                console.log(new_quantite);
+                console.log(quantite2);
+                /* mise à jour produit */
+                var req = new XMLHttpRequest();
+                req.open('GET', 'produits.json',true);
+                req.onload = function(){
+                    var jsondata = JSON.parse(this.response);
+                    var id_produit = jsondata[id].id;
+                    var product = "<div class='produit_panier'> <img src='images/croix.svg' onclick='supression_panier(" + id_produit + ")'> <h3>" + jsondata[id].name + "</h3> <p>" + jsondata[id].unit_price + "€</p><p> Quantité : " + quantite2 + " </p><p id='plus' onclick='ajoutquantite(" + id_produit + ")'> + </p> <p id='moins' onclick='retraitquantite(" + id_produit + ")'> - </p></div>";
+                    localStorage.setItem("article"+id_produit, product);
+                };
+                req.send();
+                affichage_panier();
+            }
+        }
+
+        /* enlève 1 en quantité au produit */
+        function retraitquantite(id){
+            var quantite = localStorage.getItem("quantite"+id);
+            if (quantite > 1){
+                /* nouveau calcul */
+                var new_quantite = parseInt(quantite) - 1;
+                localStorage.setItem("quantite"+id, new_quantite);
+                console.log(new_quantite);
+                /* mise à jour produit */
+                var req = new XMLHttpRequest();
+                req.open('GET', 'produits.json',true);
+                req.onload = function(){
+                    var jsondata = JSON.parse(this.response);
+                    var id_produit = jsondata[id].id;
+                    var product = "<div class='produit_panier'> <img src='images/croix.svg' onclick='supression_panier(" + id_produit + ")'> <h3>" + jsondata[id].name + "</h3> <p>" + jsondata[id].unit_price + "€</p><p> Quantité : " + new_quantite + " </p><p id='plus' onclick='ajoutquantite(" + id_produit + ")'> + </p> <p id='moins' onclick='retraitquantite(" + id_produit + ")'> - </p></div>";
+                    localStorage.setItem("article"+id_produit, product);
+                };
+                req.send();
+                affichage_panier();
+            }
+        }
+    </script>
+    <footer>
+        <p> 27 Bis Rue du Progrès,
+            <br> 93100 Montreuil
+        </p>
+        <br>
+        <div id="social">
+            <a href="https://www.instagram.com/explore/tags/broderie/?hl=fr" target="_blank"><img src="images/instagram.svg"></a>
+            <a href="https://www.linkedin.com/in/chloe-doustalet/" target="_blank"><img src="images/linkedin.svg"></a>
+        </div>
+        <br> 
+        <p><a href="https://fr.wikipedia.org/wiki/Mentions_légales">Mentions légales</a> |  @2021  | DOUSTALET Chloé</p>
+    </footer>
+</body>
+
+</html>

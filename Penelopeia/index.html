@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Penelopeia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="images/logo_sanstypo.png"/>
+  <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo_titre" src="images/banniere_logo_penelopeia.png" alt="banniere_logo_penelopeia"></a>
+        <a href="index.html"><img id="logo" src="images/logo_sanstypo.png" alt="logo"></a>
+        <ul id="menu">
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="creations.html">Créations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html"><img id="basket" src="images/basket_icon.svg">
+                <div><span id="nb">0</span></div></a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section id="section1_hp">
+            <figure>
+                <img id="full" src="images/fleurs_broderies.jpg" alt="broderie_fleurs">
+            </figure>
+            <article id="bloc_banniere">
+                <p>Découvrir les projets</p>
+                <img id="fleche" src="images/arrow.svg" alt="fleche vers le bas">
+            </article>
+        </section>
+        <section id="section2_hp">
+            <article id="grille_texte">
+                <h2>Les Broderies</h2>
+                <br><br>
+                <p>Penelopeia ce sont des broderies. 
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+                    Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+                <br><br>
+                <h2>Les différents produits</h2>
+            </article>
+            <article class="grille" id="grille_sacs">
+                <img src="images/sacs.jpg" alt="broderie sac">
+                <h3>Sacs & Pochettes</h2>
+            </article>
+            <article class="grille" id="grille_cercles">
+                <img src="images/cercles.jpg" alt="broderie cercle broderie">
+                <h3>Cercles de broderie</h2>
+            </article>
+            <article class="grille" id="grille_portemonnaies">
+                <img src="images/portemonnaies.jpg" alt="broderie porte monnaie">
+                <h3>Autre</h2>
+            </article>
+        </section>
+        <section>
+            <article id="grille_bouton">
+                <!--<button class="button_p"><a href="creations.html">Voir toutes les broderies</a></button>-->
+                <a class="button_p" href="creations.html">Voir toutes les broderies</a>
+                <br><br><br><br>
+                <h2>Nos garanties</h2>
+            </article>
+            <article id="garanties">
+                <div>
+                    <img id="handmade" src="images/icon_handmade.svg" alt="broderie sac">
+                    <p>Articles fait main</p>
+                </div>
+                <div>
+                    <img src="images/icon_envoi.svg" alt="broderie sac">
+                    <p>Livraison en 72h</p>
+                </div>
+                <div>
+                    <img src="images/paiement_secure.svg" alt="broderie sac">
+                    <p>Paiement securisé</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script>
+        /* Permet de récupérer le nombre d'articles dans le panier*/
+        var articles_panier = localStorage.getItem("nb_article");
+        nb.innerHTML = articles_panier;
+    </script>
+    <footer>
+        <p> 27 Bis Rue du Progrès,
+            <br> 93100 Montreuil
+        </p>
+        <br>
+        <div id="social">
+            <a href="https://www.instagram.com/explore/tags/broderie/?hl=fr" target="_blank"><img src="images/instagram.svg"></a>
+            <a href="https://www.linkedin.com/in/chloe-doustalet/" target="_blank"><img src="images/linkedin.svg"></a>
+        </div>
+        <br> 
+        <p><a href="https://fr.wikipedia.org/wiki/Mentions_légales">Mentions légales</a>  |  @2021  | DOUSTALET Chloé</p>
+    </footer>
+</body>
+
+</html>

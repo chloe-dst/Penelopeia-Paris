@@ -1,0 +1,88 @@
+#formulaire_contact h1{
+    color: white;
+    box-sizing: border-box;
+    background-color: var(--color_logo);
+    width: 100%;
+    padding: 20px 100px;
+    margin: 8% 8% 0 0;
+    top: 0;
+}
+
+#formulaire_contact button, input, select, textarea {
+    font-family : inherit;
+    font-size : 100%;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0;
+    color: var(--color_textenoir);
+} 
+
+@media screen and (max-width: 719px) { 
+    #formulaire_contact{
+        margin: 100px 5%;
+    }
+
+    #formulaire_contact form{
+        background-color: var(--color_header);
+        padding: 10%;
+        height: 750px;
+        margin-bottom: 20px;
+    }
+
+    #formulaire_contact select{
+        padding-left: 10px;
+        width: 300px;
+        height: 40px;
+    }
+
+    #formulaire_contact input,textarea{
+        width: 90%;
+        padding: 5px;
+    }
+
+    #formulaire_contact .button_p{
+        width: 60%;
+        background-color: var(--color_background);
+        padding: 20px;
+        margin-left: -1%;
+    }
+
+    #formulaire_contact .button_p:hover{
+        width: 60%;
+        background-color: var(--color_logo);
+    }
+}
+
+@media screen and (min-width: 720px) { 
+    
+    #formulaire_contact{
+        margin: 8% 15%;
+    }
+
+    #formulaire_contact form{
+        background-color: var(--color_header);
+        padding: 20px 100px 100px;
+        height: 500px;
+    }
+
+    #formulaire_contact select{
+        padding-left: 10px;
+        width: 250px;
+    }
+
+    #formulaire_contact input,textarea{
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    #formulaire_contact .button_p{
+        width: 50%;
+        background-color: var(--color_background);
+    }
+
+    #formulaire_contact .button_p:hover{
+        width: 50%;
+        background-color: var(--color_logo);
+    }
+} 

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo_titre" src="images/banniere_logo_penelopeia.png" alt="banniere_logo_penelopeia"></a>
+        <a href="index.html"><img id="logo" src="images/logo_sanstypo.png" alt="logo"></a>
+        <ul id="menu">
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="creations.html">Créations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html"><img id="basket" src="images/basket_icon.svg">
+                <div><span id="nb">0</span></div></a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section id="formulaire_contact">
+            <article>
+                <h1>Contact</h1>
+                <form action="https://formspree.io/f/xoqyjwyg" method="post">
+                    <label for = "prenom"> Prénom : </label>
+                    <br/>
+                    <input type="text" name="prenom" value=""/>
+                    <br/>
+                    <label for = "nom"> Nom : </label>
+                    <br/>
+                    <input type="text" name="nom" value=""/>
+                    <br/>
+                    <label for = "email"> Adresse mail : </label>
+                    <br/>
+                    <input type="email" name="email" required value=""/>
+                    <br/>
+                    <label for = "theme"> Demande : </label>
+                    <select name="theme">
+                        <option value="commande">Passer une commande</option>
+                        <option value="ateliers">Ateliers</option>
+                        <option value="presse">Presse</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <br/>
+                    <label for = "message"> Message: </label>
+                    <br/>
+                    <textarea name="message" required value="" rows="8" cols="60">
+                    </textarea>
+                    <br/>
+                    <input type="submit" class="button_p" value="Envoyer"/>
+                </form>
+            </article>
+        </section>   
+    </main>
+    <script>
+        /* Permet de récupérer le nombre d'articles dans le panier*/
+        var articles_panier = localStorage.getItem("nb_article");
+        nb.innerHTML = articles_panier;
+    </script>
+    <footer>
+        <p> 27 Bis Rue du Progrès,
+            <br> 93100 Montreuil
+        </p>
+        <br>
+        <div id="social">
+            <a href="https://www.instagram.com/explore/tags/broderie/?hl=fr" target="_blank"><img src="images/instagram.svg"></a>
+            <a href="https://www.linkedin.com/in/chloe-doustalet/" target="_blank"><img src="images/linkedin.svg"></a>
+        </div>
+        <br> 
+        <p><a href="https://fr.wikipedia.org/wiki/Mentions_légales">Mentions légales</a>  |  @2021  | DOUSTALET Chloé</p>
+    </footer>
+</body>
+
+</html>
