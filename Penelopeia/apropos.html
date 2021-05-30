@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>A propos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="apropos.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo_titre" src="images/banniere_logo_penelopeia.png" alt="banniere_logo_penelopeia"></a>
+        <a href="index.html"><img id="logo" src="images/logo_sanstypo.png" alt="logo"></a>
+        <ul id="menu">
+            <li><a class="lien" href="apropos.html">A propos</a></li>
+            <li><a class="lien" href="creations.html">Créations</a></li>
+            <li><a class="lien" href="contact.html">Contact</a></li>
+            <li><a href="panier.html"><img id="basket" src="images/basket_icon.svg">
+                <div><span id="nb">0</span></div></a>
+            </li>
+            <li><img id="menu_hamburger" src="images/menu.svg"></li>
+        </ul>
+    </header>
+    <main>
+        <section id="apropos">
+            <figure>
+                <img src="images/zoom_sac.jpg" alt="broderie sac zoomée">
+            </figure>
+            <article>
+                <h1>A propos</h1>
+                <p> Penelopeia ce sont des broderies. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam- nulla pariatur..
+
+                    Penelopeia ce sont des broderies. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam- nulla pariatur.Penelopeia ce sont des broderies. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam- nulla pariatur.
+                    
+                    Penelopeia ce sont des broderies. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et dolore magna aliqua. Ut enim ad minim veniam- nulla pariatur.</p>
+            </article>
+        </section>
+    </main>
+    <script>
+        /* Permet de récupérer le nombre d'articles dans le panier*/
+        var articles_panier = localStorage.getItem("nb_article");
+        nb.innerHTML = articles_panier;
+    </script>
+    <footer>
+        <p> 27 Bis Rue du Progrès,
+            <br> 93100 Montreuil
+        </p>
+        <br>
+        <div id="social">
+            <a href="https://www.instagram.com/explore/tags/broderie/?hl=fr" target="_blank"><img src="images/instagram.svg"></a>
+            <a href="https://www.linkedin.com/in/chloe-doustalet/" target="_blank"><img src="images/linkedin.svg"></a>
+        </div>
+        <br> 
+        <p><a href="https://fr.wikipedia.org/wiki/Mentions_légales">Mentions légales</a>  |  @2021  | DOUSTALET Chloé</p>
+    </footer>
+</body>
+
+</html>

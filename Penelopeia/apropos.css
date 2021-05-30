@@ -1,0 +1,36 @@
+#apropos article{
+    background-color: var(--color_header);
+    padding: 60px;
+    height: 600px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+#apropos p{
+    padding-top: 10px;
+    color: var(--color_textenoir);
+}
+
+@media screen and (max-width: 719px) {     
+    #apropos{
+        display: flex;
+        flex-wrap: wrap ;
+        margin: 20% 10%;
+    }
+    #apropos img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 720px) { 
+    
+    #apropos{
+        display: flex;
+        gap : 10px;
+        margin: 8% 10%;
+    }
+    #apropos img{
+        width: auto;
+        height: 600px;
+    }
+} 
