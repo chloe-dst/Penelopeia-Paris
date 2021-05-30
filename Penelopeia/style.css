@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root{
+    --color_logo: #CC5616;
+    --color_background: #FFEBD4;
+    --color_header: #ffdcbc;
+    --color_textenoir: #101010;
+}
+
+*{
+    color : var(--color_logo);
+    font-family: Montserrat, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+header{
+    height: 90px;
+    background-color: var(--color_header);
+    position: relative;
+    z-index: 2;
+}
+
+#logo{
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -10px;
+}
+
+/* icone panier */
+#basket{
+    height: 30px;
+    width: auto;
+    position: relative;
+}
+
+
+@media screen and (max-width: 719px) { 
+    #logo_titre{
+        width: 170px;
+        height: auto;
+        top : 30px; 
+        left : 4%;
+        position: absolute;
+    }
+    /* MENU */
+    #menu {
+        list-style-type: none;
+        position: absolute;
+        right: 7%;
+        top: 25px;
+        padding: 10px;
+    }
+
+    #menu li{
+        display: inline;
+        padding: 5px;
+        font-size: 1.1em;
+    }
+    #menu li a{
+        padding: 4px;
+        text-decoration: none;
+    }
+
+    #menu li a:hover{
+        text-decoration: underline;
+    }
+
+    .lien{
+        display: none;
+    }
+
+    #menu_hamburger{
+        width: 40px;
+    }
+
+    /*icone panier*/
+    #menu span{
+        color: white;
+        position: absolute;
+        left: 9px;
+        top: 4px;
+    }
+    
+    #menu div{
+        background-color: var(--color_logo);
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+    }
+     
+}
+
+@media screen and (min-width: 720px) { 
+    #logo_titre{
+        width: 200px;
+        height: auto;
+        top : 25px; 
+        left : 7%;
+        position: absolute;
+    }
+    /* MENU */
+    #menu{
+        list-style-type: none;
+        position: absolute;
+        right: 7%;
+        top: 25px;
+    }
+    #menu li{
+        display: inline;
+        padding: 5px;
+        font-size: 1.1em;
+    }
+    #menu li a{
+        padding: 4px;
+        text-decoration: none;
+    }
+    #menu li a:hover{
+        text-decoration: underline;
+    }
+    
+    #menu div{
+        background-color: var(--color_logo);
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        position: absolute;
+        top: 10px;
+        right: -12px;
+    }
+
+    #menu_hamburger, #croix_menu{
+        display: none;
+    }
+
+    /*icone panier*/
+    #menu span{
+        color: white;
+        position: absolute;
+        left: 9px;
+        top: 4px;
+    }
+    
+    #menu div{
+        background-color: var(--color_logo);
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+    }
+     
+}
+
+/* FOOTER */ 
+footer{
+    background-color: var(--color_logo);
+    padding: 30px;
+}
+/*.too_short{
+    position: absolute;
+    bottom: 0;
+}*/
+footer p{
+    color : white;
+    text-align: center;
+    font-size: 0.8em;
+}
+footer a{
+    color: white;
+}
+footer img{
+    height: 30px;
+    width: auto;
+}
+#social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 25px;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+/* CORPS DE PAGE*/
+body{
+    background-color : var(--color_background);
+}
+h1{
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+h2{
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+h3{
+    font-size: 1.6em;
+    margin-top: 10px;
+}
+p{
+    font-size: 1em;
+}
+.button_p{
+    color : var(--color_logo);
+    border : solid 1px var(--color_logo);
+    padding: 15px 30px;
+    background-color: var(--color_header);
+    font-size: 1.1em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.button_p:hover{
+    color : var(--color_header);
+    border : none;
+    background-color: var(--color_logo);
+}
