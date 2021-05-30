@@ -1,0 +1,84 @@
+
+[ 
+    { 
+        "id" : "0", 
+        "name" : "Venetian Memory", 
+        "description" : "Sac mettant à l'honneur la spécialité vénitienne : le Spritz.", 
+        "img_src" : "images/venetian.jpg", 
+        "unit_price" : "30",
+        "type" : "sac", 
+        "available" : "false" 
+    },
+    { 
+        "id" : "1", 
+        "name" : "Real Poufsouffle", 
+        "description" : "Portez fièrement les couleurs de votre maison de coeur avec ce sac Poufsouffle.", 
+        "img_src" : "images/sac_poufsouffle.jpg", 
+        "unit_price" : "25",
+        "type" : "sac", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "2", 
+        "name" : "Prénom personnalisé", 
+        "description" : "Pochette idéale à offrir avec prénom personnalisable.", 
+        "img_src" : "images/prenom_perso.jpg", 
+        "unit_price" : "20",
+        "type" : "pochette", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "3", 
+        "name" : "After rain...", 
+        "description" : "Pochette pour vous accompagner dans les bons comme les mauvais moments.", 
+        "img_src" : "images/no_rain.jpg", 
+        "unit_price" : "20",
+        "type" : "pochette", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "4", 
+        "name" : "Law student", 
+        "description" : "Vous ne vous ferez plus jamais arnaquer avec ce porte-monnaie qui atteste de vos connaissances en droit.", 
+        "img_src" : "images/law_student.jpg", 
+        "unit_price" : "15",
+        "type" : "autre", 
+        "available" : "false" 
+    },
+    { 
+        "id" : "5", 
+        "name" : "Bouquet", 
+        "description" : "Cercle de broderie représentant un bouquet de fleurs.", 
+        "img_src" : "images/bouquet.jpg", 
+        "unit_price" : "15",
+        "type" : "cercle", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "6", 
+        "name" : "Plantes", 
+        "description" : "Cercle de broderie pour apporter un peu de verdure à votre intérieur.", 
+        "img_src" : "images/cercles.jpg", 
+        "unit_price" : "15",
+        "type" : "cercle", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "7", 
+        "name" : "Summer Vibes", 
+        "description" : "Cercle de broderie pour accueillir l'été et le soleil", 
+        "img_src" : "images/summer_vibes.jpg", 
+        "unit_price" : "12",
+        "type" : "cercle", 
+        "available" : "true" 
+    },
+    { 
+        "id" : "8", 
+        "name" : "Bavoir personnalisé", 
+        "description" : "Bavoir idéal à offrir avec prénom personnalisable", 
+        "img_src" : "images/bavoir_perso.jpg", 
+        "unit_price" : "15",
+        "type" : "autre", 
+        "available" : "false" 
+    }
+]
