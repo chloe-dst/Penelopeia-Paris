@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="creations.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo_titre" src="images/banniere_logo_penelopeia.png" alt="banniere_logo_penelopeia"></a>
+        <a href="index.html"><img id="logo" src="images/logo_sanstypo.png" alt="logo"></a>
+        <ul id="menu">
+            <li><a class="lien" href="apropos.html">A propos</a></li>
+            <li><a class="lien" href="creations.html">Créations</a></li>
+            <li><a class="lien" href="contact.html">Contact</a></li>
+            <li><a href="panier.html"><img id="basket" src="images/basket_icon.svg">
+                <div><span id="nb">0</span></div></a>
+            </li>
+            <li><img id="menu_hamburger" src="images/menu.svg"></li>
+        </ul>
+    </header>
+    <main id="main_creations">
+        <section id="titre_creations">
+            <article>
+                <h1>Les créations</h1>
+             </article>
+        </section>
+        <section id="creations">
+            <article id="produits_creations">
+            </article>
+            <article id="cercles">
+                <div id="cercle_bord"></div>
+                <div id="cercle_plein"></div>
+                <div class="petits_cercles" id="cercle_petit1"></div>
+                <h2>Pochettes</h2>
+                <div class="petits_cercles" id="cercle_petit2"></div>
+                <h2>Cercles</h2>
+                <div class="petits_cercles" id="cercle_petit3"></div>
+                <h2>Autre</h2>
+            </article>
+        </section>   
+    </main>
+    <script>
+        /* Permet de récupérer le nombre d'articles dans le panier */
+        var nombre_articles = localStorage.getItem("nb_article");
+        nb.innerHTML = nombre_articles;
+
+        /* AJAX */
+        var placement = document.getElementById("produits_creations");
+        var request = new XMLHttpRequest();
+
+        request.open('GET', 'produits.json',true);
+        /* Gestion des erreurs */
+        request.onload = function(){
+            if (this.status <=200 && this.status < 400){
+                var jsondata = JSON.parse(this.response);
+                addproducts(jsondata);
+            }
+            else {
+                alert('No');
+            }
+        };
+        request.onerror = function(){
+            alert('erreur de connexion');
+        };
+        request.send();
+
+        /* Fonction pour l'affichage du rendu de la requête */
+        function addproducts(data){
+            for (i=0; i < data.length; i++){
+                var id_produit = data[i].id;
+                placement.innerHTML += "<div> <img src='" + data[i].img_src + " '><h3>" + data[i].name + " </h3> <br> <p>"+ data[i].description + "<br><br>" + data[i].unit_price + "€ </p> <br><br> <p onclick='ajoutpanier("+ id_produit + ")' class='button_p'> Ajouter au panier </p> </div>";
+            }
+        };
+
+        /* Ajout d'un produit au panier*/
+        var nb_articles = 0;
+        var prix_total = "0";
+        if (nombre_articles > 0){
+            prix_total = localStorage.getItem("prix total");
+        };
+        /* Code s'il y a déjà des éléments dans le panier pour éviter qu'il se reset à 0 au retour sur la page Créations */
+        if (nombre_articles > 0){
+            nb_articles = localStorage.getItem("nb_article");
+        }
+
+        /* fonction qui met à jour le nombre d'articles dans l'icone panier */
+        function ajoutpanier(id){
+            nb_articles ++;
+            nb.innerHTML = nb_articles;
+            localStorage.setItem("nb_article", nb_articles);
+            requete_clic(id);
+        };
+
+        /*fonction qui permet d'afficher les produits ajoutés sur la page produits*/
+        function requete_clic(id){
+            var req = new XMLHttpRequest();
+            req.open('GET', 'produits.json',true);
+            req.onload = function(){
+                /* creation produit panier */
+                var jsondata2 = JSON.parse(this.response);
+                var id_produit = jsondata2[id].id;
+                var product = "<div class='produit_panier'> <img src='images/croix.svg' onclick='supression_panier(" + id_produit + ")'> <h3>" + jsondata2[id].name + "</h3> <p>" + jsondata2[id].unit_price + "€</p><p> Quantité : 1 </p><p id='plus' onclick='ajoutquantite(" + id_produit + ")'> + </p> <p id='moins' onclick='retraitquantite(" + id_produit + ")'> - </p></div>";
+                localStorage.setItem("article"+nb_articles, product);
+                /* Mise à jour prix total */
+                prix_total = parseInt(prix_total) + parseInt(jsondata2[id].unit_price);
+                console.log(prix_total);
+                localStorage.setItem("prix total", prix_total);
+                /* Creation d'une première quantité */
+                localStorage.setItem("quantite"+id_produit, 1);
+                };
+            req.send();
+        };
+
+
+    </script>
+    <footer>
+        <p> 27 Bis Rue du Progrès,
+            <br> 93100 Montreuil
+        </p>
+        <br>
+        <div id="social">
+            <a href="https://www.instagram.com/explore/tags/broderie/?hl=fr" target="_blank"><img src="images/instagram.svg"></a>
+            <a href="https://www.linkedin.com/in/chloe-doustalet/" target="_blank"><img src="images/linkedin.svg"></a>
+        </div>
+        <br> 
+        <p><a href="https://fr.wikipedia.org/wiki/Mentions_légales">Mentions légales</a>  |  @2021  | DOUSTALET Chloé</p>
+    </footer>
+</body>
+
+</html>

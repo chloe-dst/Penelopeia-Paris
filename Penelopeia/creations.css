@@ -1,0 +1,159 @@
+/* Section Créations */
+#main_creations{
+    position: relative;
+    overflow: hidden;
+}
+
+/* Affichage des différents produits */
+#creations img{
+    width: 80%;
+    height: auto;
+    margin: 20px;
+}
+
+#produits_creations h3{
+    font-weight: 700;
+}
+
+#produits_creations .button_p{
+    position: static;
+    margin-left: 50%;
+    margin-bottom: 10px;
+    background-color: var(--color_background);
+}
+
+#produits_creations .button_p:hover{
+    background-color: var(--color_logo);
+}
+
+@media screen and (max-width: 999px) {     
+    /* on affiche pas les différentes catégories sur mobile */
+    #cercles{
+        display: none;
+    }
+
+    /* Affichage des différents produits */
+    #titre_creations{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    #creations{
+        margin: 0 10% 10% 10%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #produits_creations{
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+
+    #produits_creations div{
+        background-color: var(--color_header);
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        padding: 15px;
+        padding-bottom: 50px;
+        border: solid 2px var(--color_logo);
+    }
+}
+
+@media screen and (min-width: 1000px) { 
+
+    /* Affichage des différents produits */
+    #titre_creations{
+        margin-top: 8%;
+        margin-left: 10%;
+    }
+
+    #creations{
+        margin: 5% 0 10% 10%;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 1fr;
+        grid-gap: 10px;
+    }
+
+    #produits_creations{
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    #produits_creations div{
+        background-color: var(--color_header);
+        height: 600px;
+        width: 40%;
+        overflow: hidden;
+        padding: 15px;
+        border: solid 2px var(--color_logo);
+    }
+    
+    /* Roue des catégories */
+    #cercles{
+        grid-column-start: 2;
+    }
+    #cercle_bord{
+        width: 500px;
+        height: 500px;
+        border-radius: 50% 50% 50% 50%;
+        border: 1px solid var(--color_logo);
+        position: absolute;
+        right: -250px;
+        top: 250px;
+    }
+    #cercle_plein{
+        width: 300px;
+        height: 300px;
+        border-radius: 50% 50% 50% 50%;
+        background: var(--color_logo);
+        position: absolute;
+        top: 350px;
+        right: -150px;
+    }
+    .petits_cercles{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background: var(--color_logo);
+    }
+    #cercle_petit1{
+        position: absolute;
+        right: 150px;
+        top: 300px;
+    }
+    #cercle_petit1 + h2{
+        transform: rotate(-45deg);
+        position: absolute;
+        right: 150px;
+        top: 280px;
+    }
+    #cercle_petit2{
+        position: absolute;
+        right: 230px;
+        top: 485px;
+    }
+    #cercle_petit2 + h2{
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 250px;
+        top: 485px;
+    }
+    #cercle_petit3{
+        position: absolute;
+        right: 150px;
+        top: 665px;
+    }
+    #cercle_petit3 + h2{
+        transform: rotate(-135deg);
+        position: absolute;
+        right: 170px;
+        top: 705px;
+    }
+} 
